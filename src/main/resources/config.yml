@@ -1,0 +1,31 @@
+commands: # Commands to execute on finish (this setup works on unix)
+  - "/bin/bash"
+  - "-c"
+  - "docker compose up -d" # Command that will be executed
+jenkins: # Jenkins authentication
+  user: "renvins"
+  password: "password"
+  globalUrl: "https://jenkinsUrl/job/organizationName/"
+downloads:
+  Duel: # General name (use what you want)
+    repo: "Duel" # Repo name
+    branch: "main"
+    version: "latest" # SHA commit or latest
+    artifacts: # Select which artifacts you want to download
+      1:
+        name: "duel-spigot-1.0-SNAPSHOT.jar" # Jenkins' artifact name
+        path: "spigot/" # Relocation folder
+        relocatedName: "duel-spigot.jar"
+      2:
+        name: "duel-proxy-1.0-SNAPSHOT.jar"
+        path: "proxy/"
+        relocatedName: "duel-proxy.jar"
+  KitPvP:
+    repo: "KitPvP"
+    branch: "1.20.2"
+    version: "3e71d84e71c987fa0dc01a5c3be1ebb2afa80ca4" # You can specify a commit
+    artifacts:
+      1:
+        name: "kitpvp-1.0-SNAPSHOT.jar"
+        path: "plugins/"
+        relocatedName: "kitpvp.jar"
